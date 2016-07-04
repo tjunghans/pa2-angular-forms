@@ -1,5 +1,5 @@
 {{user | json}}
-<form>
+<form #f="ngForm">
   <input type="hidden" id="id" name="id" [(ngModel)]="user.id"/>
   <div class="form-group">
     <label for="name">Name</label>
@@ -20,5 +20,8 @@
     [(ngModel)]="user.email"
     ngControl="email">
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button [disabled]="!f.valid"
+  type="submit" 
+  class="btn btn-default"
+  >Submit</button>
 </form>
