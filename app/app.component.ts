@@ -8,8 +8,15 @@ import { Person } from './model';
 })
 export class AppComponent {
   user: Person;
+  submitted: boolean;
 
   constructor(_mock: Mock) {
+    this.submitted = false;
     this.user = _mock.mike;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log('sending...' + JSON.stringify(this.user));
   }
 }
